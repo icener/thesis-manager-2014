@@ -1,0 +1,298 @@
+<html>
+<head>
+	<title>I am Chrissy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  <link href="/css/bootstrap.css" rel="stylesheet"/>  
+  <link rel="stylesheet" href="/css/styles.css"/> 
+</head>
+
+{% if user_name %}
+
+<body background= "/images/blak.gif">
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+      
+      <div>
+        <a class="btn navbar-btn pull-right" id="login2" href="{{ url|safe }}"> {{ url_linktext }}</a>
+      </div> 
+
+      <div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown"> 
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+<!-- Header End -->
+
+  </div>
+
+
+
+		<center><br><br>
+
+		<table  cellpadding = 5px bgcolor= #363636 style = "border-radius: 8px;">
+			
+			<tr >
+			<td style="border: 5px dashed #7A7A7A; border-radius: 8px;">
+        <center>
+				<img src = "/images/pic1.jpg" width = 250px length = 200px alt="boom stalker!"/>
+			  </center>
+      </td>
+			</tr>
+			
+			<tr colspan = "2">
+			<td>
+				<font face = "Segoe UI Light" size = 5pt color = #FE8196> &nbsp&nbsp&nbsp<b>Chrissy Joy Bacanto Ongy <b></font>
+			</td>
+			</tr>
+		
+		</table>
+
+  <br><br>
+
+		<table width= 800px cellspacing=0 cellpadding=15px style="border-radius:8px;">
+    	 
+    	<tr style = "border-radius:8px;" >
+
+      		<td colspan=2 align="middle" bgcolor=#6F6F6F style="border-radius: 8px; padding:10px 10px 10px 10px; opacity: 0.8">
+
+      			<font face = "Verdana" color=#FE8196 size=4pt> <em>"Smile, agree, and do whatever you're gonna do anyway"</em> </font>
+      		</td>
+     	</tr>
+     	
+     	<tr background="/images/grey.png" style="border-radius:8px;">
+      		<td align="middle" rowspan =2 width=400px bgcolor = #C1C1C1 style = "border: 2px solid #272822; border-radius: 8px; opacity:0.8; padding:10px 10px 10px 10px;">
+      			<font face = "Arial"><b>About me</b> </font>
+
+            <p align="center">
+            <font face = "calibri"> <em>
+            Hi! I am a 5th year student of Bachelor of Science in Computer Engineering. I like to receive and deal with challenging tasks. I am an enthusiastic and optimistic person. Some say that I am a very funny and interesting with a good sense of humor. As I meet new people who are happy to meet me, I feel comfortable with them easily, because I believe that friendship is one of the most important values in life. 
+            </em></font> 
+            </p>
+
+      		</td>
+
+      		<td width=400px bgcolor=#C1C1C1 style = "border: 2px solid #272822; border-radius: 8px;opacity:0.8;">
+      			<p  align = "center"><font face = "Arial"> <b>Contact Infos</b> </font></p>
+
+
+            <font align= "center" face = "calibri">
+              &nbsp&nbsp<img src="/images/mobile.png" width=25px height=25px></img>&nbsp<em>(+63) 935 7530879</em>
+              
+              &nbsp&nbsp<img src="/images/mail.png" width=25px height=25px></img>&nbsp&nbsp<em>chrissy.ongy@gmail.com</em>
+            </font>
+
+      		</td>
+        </tr>
+     		 	 	
+      	<tr background="/images/grey.png" style="border-radius:8px;">
+      		<td align="middle" bgcolor=#C1C1C1 style = "border: 2px solid #272822; border-radius: 8px; opacity:0.8;">
+      			<p  align = "center"><font face = "Arial"> <b>Social Links </b></font></p>
+
+      			<a href="https://facebook.com/chishirikiseimimi10"><img src = "/images/fb.png" width=50px height=50px/></a>
+
+            <a href="https://instagram.com/chrissy_baleleng"><img src = "/images/insta.png" width=50px height=50px/></a>
+
+      			<a href="https://plus.google.com/+ChrissyOngy10"><img src = "/images/ggl.png" width=50px height=50px/></a>
+
+            <a href="https://twitter.com/iamChriiissy"><img src = "/images/twit.png" width=50px height=50px/></a>
+
+				    <a href="https://github.com/ChrissyOngy"><img src = "/images/gh.png" width=50px height=50px/></a>
+      		</td>
+      	</tr>
+
+    	</table> 
+
+<br><br><br>
+
+      <table background= "/images/tumblr.jpg" bgcolor=#C1C1C1 align="middle" width=300px cellpadding=15px cellspacing=0 style = "border: 2px solid #000000; border-radius: 8px; padding:15px 15px 15px 15px;">
+
+        <tr align="middle" >
+        <td style="padding:15px 15px 15px 15px;">
+        <form action="/sign2?guestbook_name={{ guestbook_name }}" method="post">
+    
+          <font color=#F51564 style="Segoe UI" size=4pt><b> Please LOG IN before signing my Guestbook <b></font><br><br>
+
+          <a color= #FE8196 href="{{ url|safe }}"> {{ url_linktext }} </a>
+
+          <br><br>
+
+          <div><textarea style="resize:none; margin=50px; font: 12pt Calibri" name="content" rows="4" cols="50" ></textarea></div>
+          <br>
+          <div><input type="submit" value="Sign in Chrissy's Guestbook"
+            style="padding: 10px 10px 10px;
+              font-size: 12px;
+              font-style: Calibri;
+              background-color: #FE8196;
+              color: #ffffff;
+              border-radius: 8px;"></div>
+        </form>
+
+
+
+        </td>
+        </tr>
+
+        <tr>
+        <td style="padding:15px 15px 15px 15px;" align="left">
+          <font face="calibri" size=4pt>
+            {% for greeting in greetings %}
+            {% if greeting.author %}
+            
+            &nbsp&nbsp&nbsp <font color=#FE8196><em><b>{{ greeting.author.nickname() }}</b></em></font> wrote:</blockquote>
+            
+            {% else %}
+            
+            An<b><em> unknown person </em></b>wrote:
+            
+            {% endif %}
+            
+            <blockquote style="background: rgba(255,255,255, 0.4);
+              border-left: 5px solid #F97D91;
+              border-right: 5px solid #F97D91;
+              overflow: auto;">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp {{ greeting.content }}
+            
+            </blockquote>
+
+            {% endfor %}
+          
+            
+
+
+          </font>
+        </td>
+        </tr>
+      </table>
+<br><br><br><br>
+</center>
+
+
+
+
+
+
+
+{% else %}
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+
+      <div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+  </div>
+
+<!-- Header End -->
+
+
+
+<body background="/images/red.jpg">
+  <div class="col-md-20" id="login">
+    <table align="center">
+      <tr align="center">
+       <td align="center">
+        <br><br><br>
+        <img src="/images/lock.png" width="200px" height="200px">
+       </td>
+
+    <td> <p align="center">
+    <font style="font: 30pt Calibri; color: #CBCBCB; "><br>
+    Please <a class="btn" id="login1" href="{{ url|safe }}"> {{ url_linktext }}</a><br>
+    before entering the page.
+    </font>
+    </p>
+    </td>
+<tr>  
+</table>
+</div>
+</body>
+
+
+
+  <!-- Footer -->
+  <div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+    <div class="container">
+      <p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Scripts -->
+  <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src= "js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>  
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+
+<!--end script -->
+
+
+
+
+
+</body>
+</html>

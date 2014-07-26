@@ -1,0 +1,211 @@
+<html>
+	<head>
+		<title> View Thesis </title>
+		<link rel="stylesheet" href="/css/styles.css"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		<link href="/css/bootstrap.css" rel="stylesheet"/>
+
+	
+	</head>
+<body background="/images/a2violet.jpg">
+
+{% if user_name %}
+
+
+<!-- Header -->
+	<div id="header" class="navbar navbar-inverse navbar-static-top " >
+	
+		<div id="header_container" class="container">
+			<a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+			
+      <div>
+        <a class="btn navbar-btn pull-right" id="login2" href="{{ url|safe }}"> {{ url_linktext }}</a>
+      </div> 
+
+			<div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+  				<li class="#"><a href="/">Guestbook</a></li>
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					   	<li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+             	 		<li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+  					</ul>  			
+  				</li>
+  				<li><a href="/student/list">Students</a></li>
+  				<li><a href="/thesis/list">Thesis</a></li>
+  				<li><a href="/adviser/list">Advisers</a></li>
+			</ul>
+			</div>
+
+
+		</div>	
+
+<!-- Header End -->
+
+	</div>
+
+
+
+	
+
+	<div class="container">
+		<div class="row"> 
+
+			<!-- Side Menu-->
+			<div class="col-md-3">
+				<br/><br/>
+				<a id="thesisbtn" class="btn btn-default custom-btn" href="/thesis/new" style="padding-right:30px;"> <img src="/images/add.png" width=25px height=25px align="left">&nbsp&nbsp&nbsp Add new Thesis </a>
+				<br><br>
+				<a id="thesisbtn" class="btn btn-default custom-btn" href="/thesis/list" style="padding-right:35px;"> <img src="/images/docs1.png" width=25px height=25px align="left">&nbsp&nbsp&nbsp View all Theses </a>
+			</div>
+			<!-- Side Menu End-->
+
+
+
+			<div class="col-md-5">
+			<fieldset>
+				{% for t in all_thesis %}
+				{% if (t.key.id() == id) %}
+
+			
+			<legend><h2 style="color:#fff;"><font style="Segoe UI">&raquo&nbsp {{t.thesis_title}}</font></h2></legend>
+			
+			<blockquote id="blockquote">
+			<font style="font: 13pt Calibri italic;">
+				<p align="left">{{t.school_year}}, &nbsp {{t.status}}</p>
+			</font>
+			<br>
+			<font style="font: 15pt Calibri;">
+				<p align="justify">{{t.description}}</p>
+			</font>
+			</blockquote>
+
+			<div class="col-lg-45">
+			<hr>
+			<a class="btn pull-right" id="thesiseditbtn" href="/thesis/edit/{{t.key.id()}}"><img src="/images/edit1.png" width="20px" height="20px"> Edit</a>
+			</div>
+
+
+				{% endif %}
+				{% endfor %}
+
+			
+			</fieldset>
+			</div>
+
+
+
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<div id="footer-style" class="navbar navbar-default navbar-fixed-bottom">
+		<div class="container">
+			<p class="navbar-text" style="font: 10pt Tahoma; color: #B7154D;"> Site built by TEAM 9 :) </p>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+{% else %}
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+
+      <div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+  </div>
+
+<!-- Header End -->
+
+
+<div class="col-md-20" id="loginthesis">
+<table align="center">
+<tr>
+    <td>
+    <br><br><br>
+    <img src="/images/locked-grey.png" width="180px" height="180px">
+    </td>
+
+    <td style="padding-left: 20px"> <p align="left">
+    <font style="font: 30pt Calibri; color: #CBCBCB; "><br>
+    Please <a class="btn" id="login1" href="{{ url|safe }}"> {{ url_linktext }}</a>
+    before <br> entering the page.
+    </font>
+    </p>
+    </td>
+<tr>  
+</table>
+</div>
+
+
+
+
+  <!-- Footer -->
+  <div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+    <div class="container">
+      <p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+	
+
+<!-- Scripts -->
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src= "js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>	
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+
+<!--end script -->
+
+</body>
+</html>

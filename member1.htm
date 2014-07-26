@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Personal Webpage</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+  	<link href="/css/bootstrap.css" rel="stylesheet"/>  
+  	<link rel="stylesheet" href="/css/styles.css"/> 
+</head>
+
+
+{% if user_name %}
+
+<body background="/images/back3.jpg" bgproperties="local">
+
+
+
+
+
+<!-- Header -->
+	<div id="header" class="navbar navbar-inverse navbar-static-top " >
+	
+		<div id="header_container" class="container">
+			<a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+			
+      <div>
+        <a class="btn navbar-btn pull-right" id="login2" href="{{ url|safe }}"> {{ url_linktext }}</a>
+      </div> 
+
+			<div>
+          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+  				<li class="#"><a href="/">Guestbook</a></li>
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					   	<li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+             			<li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+  					</ul>  			
+  				</li>
+  				<li><a href="/student/list">Students</a></li>
+  				<li><a href="/thesis/list">Thesis</a></li>
+  				<li><a href="/adviser/list">Advisers</a></li>
+			</ul>
+			</div>
+
+		</div>	
+
+<!-- Header End -->
+
+	</div>
+
+
+
+
+	<h1 style = "font-family:Calibri; text-align:center; color:#ffffff"><img src = "/images/ice2.png"align="center"width="115" height="115"> &nbsp;&nbsp;Icener Jhon M. Dela Cruz</h1>
+		<p style ="font-family:Calibri; text-align:center;"><strong><br><i><q>What you feed your mind determines your appetite.</strong></i></q><br></p>
+		<hr style="height:3px;background-color:#2d9e30;" width="50%" />
+		<p style= "font-family:Calibri;text-align:center;size:10pt;"><b>About Me:</b></p>
+		<p style ="font-family:Calibri;text-align:center;size:10pt;"><i><n>An ordinary student who is currently on his fifth year in Computer Engineering,<br>who has basic cognizance with HTML, CSS, java and javascript.<br> He is also proficient in Adobe photoshop which makes him a creative person.<br> Detail-oriented, problem-solver and a fast-learner.</i></p>
+		<p style= "font-family:Calibri; text-align:center;"><b>Contact Details:</b>
+		<table align="center";style="width:500px">
+		<tr>
+		<td><img src ="/images/home-icon.png"width="50" height="50"></td>
+		<td><img src ="/images/email-icon.png"width="43" height="43"></td>
+		<td><img src ="/images/phone-icon.png"width="48" height="50"></td>
+		</tr>
+		</table>
+
+		<div class="container">
+			<table align="center"; style="border: 2px solid #ffffff; width:600px"; bgcolor="#2d9e30">
+				<tr style="border: 2px solid #78ab46;">
+					<td style="background: #78ab46; border: 2px solid #ffffff;"><p style= "font-family:Calibri; text-align:center;color:#ffffff;"><b> Address:</b><br>185 Guiho St. Cembo, Makati City</p></td>
+				<td style="background: #78ab46; border: 2px solid #ffffff;"><p style= "font-family:Calibri; text-align:center;color:#ffffff;"><b> E-mail address:</b><br>icenerjhon@yahoo.com</p></td>
+		
+				<td style="background: #78ab46; border: 2px solid #ffffff;" ><p style= "font-family:Calibri; text-align:center;color:#ffffff;"><b>Contact number:</b><br>09367579404</p></td>
+				</tr>
+		
+			</table>
+			</div>
+			<br>
+			<hr style="height:3px;background-color:#2d9e30;" width="50%"/>
+			<p style="font-family:Calibri;text-align:center;size:10pt;">You may also reach me in these accounts:<br><br>
+			<a href="https://github.com/icener"><img src = "/images/github.png" width=63px height=63px align="center"></a>
+			<a href="https://www.facebook.com/iczy.deecy"><img src = "/images/fb-icon.png" width=50px height=50px align="center"></a>
+			<a href="https://twitter.com/iczyandQueenB"><img src = "/images/twitter-icon.png" width=50px height=50px align="center"></a>
+			<a href="http://instagram.com/icenerjhon"><img src = "/images/instagram-icon.png"width=47px height=47px align="center"></p></a>
+			<hr style="height:3px;background-color:#2d9e30;" width="50%" />
+			<p style="font-family:Calibri;text-align:center;size:10pt;">Take the honor to sign my guestbook.<br>
+			<center>
+
+		<center>	
+			 <table background="/images/green.jpg" align="middle" width=500px style = "border-radius: 8px; padding:15px 15px 15px 15px;">
+
+				<tr><td style="padding:15px 15px 15px 15px;" align="left">
+
+				<center>
+				<form action="/sign1?guestbook_name={{ guestbook_name }}" method="post">
+				    <div><textarea style="resize:none; margin=50px;" name="content" rows="4" cols="40" width="230px" ></textarea></div>
+				    <div><center><input type="submit" value="Sign Guestbook"></center></div>
+				</form>
+			
+
+		<br><br>
+
+					{% for greeting in greetings %}
+				    {% if greeting.author %}
+				        <font face="Calibri" size=3pt color=#ffffff>{{ greeting.author.nickname() }}wrote:</font>
+				      {% else %}
+				       <font face="Calibri" size=3pt color=#ffffff>An anonymous person wrote:</font>
+				      {% endif %}
+				      <font face="Calibri" size=3pt color=#ffffff><i>
+				      <center>
+				      <blockquote style="background: rgba(255,255,255, 0.4);
+				      		border-left: 7px solid #4BE550;
+				      		border-right: 7px solid #4BE550;
+              				overflow: auto;"> {{ greeting.content }}</blockquote></i></font>
+				    {% endfor %}
+				    </center>
+				</center>
+
+
+			</tr></td>
+			</table>
+		</center>
+
+
+
+
+{% else %}
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+
+      <div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+  </div>
+
+<!-- Header End -->
+
+
+<body background="/images/red.jpg">
+<div class="col-md-20" id="login">
+<table align="center">
+<tr align="center">
+    <td align="center">
+    <br><br><br>
+    <img src="/images/lock.png" width="200px" height="200px">
+    </td>
+
+    <td> <p align="center">
+    <font style="font: 30pt Calibri; color: #CBCBCB; "><br>
+    Please <a class="btn" id="login1" href="{{ url|safe }}"> {{ url_linktext }}</a><br>
+    before entering the page.
+    </font>
+    </p>
+    </td>
+<tr>  
+</table>
+</div>
+</body>
+
+
+  <!-- Footer -->
+  <div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+    <div class="container">
+      <p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+<!-- Scripts -->
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src= "js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>	
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+<!--end script -->
+
+
+
+<br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

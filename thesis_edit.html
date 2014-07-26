@@ -1,0 +1,296 @@
+<html>
+	
+	<head>
+		<title> Edit Thesis </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		<link href="/css/bootstrap.css" rel="stylesheet"/>	
+		<link rel="stylesheet" href="/css/styles.css"/>	
+		
+		<!--Character Limit-->
+
+			<script>
+        function validateLimit(obj, divID, maxchar) {
+
+            objDiv = get_object(divID);
+
+            if (this.id) obj = this;
+
+            var remaningChar = maxchar - trimEnter(obj.value).length;
+
+            if (objDiv.id) {
+                objDiv.innerHTML = remaningChar + " characters left";
+            }
+            if (remaningChar <= 0) {
+                obj.value = obj.value.substring(maxchar, 0);
+                if (objDiv.id) {
+                    objDiv.innerHTML = "0 characters left";
+                }
+                return false;
+            }
+            else
+            { return true; }
+        }
+
+        function get_object(id) {
+            var object = null;
+            if (document.layers) {
+                object = document.layers[id];
+            } else if (document.all) {
+                object = document.all[id];
+            } else if (document.getElementById) {
+                object = document.getElementById(id);
+            }
+            return object;
+        }
+
+        function trimEnter(dataStr) {
+            return dataStr.replace(/(\r\n|\r|\n)/g, "");
+        }
+    </script>	
+	</head>
+
+
+
+<body background="/images/a3violet.jpg">
+
+{% if user_name %}
+
+<!-- Header -->
+	<div id="header" class="navbar navbar-inverse navbar-static-top " >
+	
+		<div id="header_container" class="container">
+			<a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+			
+      <div>
+        <a class="btn navbar-btn pull-right" id="login2" href="{{ url|safe }}"> {{ url_linktext }}</a>
+      </div> 
+
+			<div>
+	          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+  				<li class="#"><a href="/">Guestbook</a></li>
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					   	<li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              			<li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+  					</ul>  			
+  				</li>
+  				<li><a href="/student/list">Students</a></li>
+  				<li><a href="/thesis/list">Thesis</a></li>
+  				<li><a href="/adviser/list">Advisers</a></li>
+			</ul>
+			</div>
+
+
+		</div>	
+
+<!-- Header End -->
+
+	</div>
+	
+
+	
+	<div class="container">
+		<div class="row"> <!-- bawat row may 12 columns-->
+			<!-- Side Menu-->
+			<div class="col-md-3"><!-- isang div na ang size katumbas ng 3 columns-->
+				<br/><br/>
+				<a class="btn" id="thesisbtn" href="/thesis/new"><img src="/images/add.png" width=25px height=25px align="left"> &nbsp&nbsp&nbsp Add new Thesis</a>
+				<br><br>
+				<a class="btn" id="thesisbtn" href="/thesis/list"><img src="/images/docs1.png" width=25px height=25px align="left"> &nbsp&nbsp&nbsp View all Theses </a>
+			</div>
+			<br/>
+
+
+			<div class="col-md-6">
+
+			{% for t in all_thesis %}
+			{% if (t.key.id() == id) %}
+			
+			<fieldset>
+			<legend><h1 style="color: #FFFFFF;"><font style="Segoe UI"> Edit Thesis &nbsp&raquo;</font></h1></legend>
+
+				<form method = "POST" action ="/thesis/edit/{{t.key.id()}}"> 
+					<!-- Thesis Title -->
+						<div class="input-group">
+							<span class="input-group-addon labelbg">Thesis title:&nbsp;&nbsp;&nbsp;</span>
+							<input type = "text" class="form-control" name= "thesis_title" class="form-control" pattern="^[a-zA-z0-9 -()]*" name= "thesis_title" value="{{t.thesis_title}}" required>
+						</div>
+					<br/>
+					<!-- Description -->
+						<div class="input-group">
+							<span class="input-group-addon labelbg" >Description:&nbsp;&nbsp;</span>
+							<textarea id="desctextarea" style="resize:vertical; max-height:220px;" pattern="^[a-zA-z0-9 -()]*" onkeyup="return validateLimit(this, 'charlimit', 500)" class="form-control" name= "description" id="descriptiontextbox"rows="5" cols="45" required> {{t.description}} </textarea>
+							<div id="charlimit" style="background-color:#f7f7f7; border-radius:0px;" class="form-control">500 characters left</div>
+						</div>
+					<br/>
+					<!-- School Year -->
+						<div class="input-group col-md-5">
+							<span class="input-group-addon">School Year:</span>
+							<select name="school_year" class="form-control">
+							  <option> {{t.school_year}} </option>
+							  <option value="2000"> 2000 </option>
+							  <option value="2001"> 2001 </option>
+							  <option value="2002"> 2002 </option>
+							  <option value="2003"> 2003 </option>	
+							  <option value="2004"> 2004 </option>
+							  <option value="2005"> 2005 </option>
+							  <option value="2006"> 2006 </option>
+							  <option value="2007"> 2007 </option>
+							  <option value="2008"> 2008 </option>
+							  <option value="2009"> 2009 </option>
+							  <option value="2010"> 2010 </option>
+							  <option value="2011"> 2011 </option>
+							  <option value="2012"> 2012 </option>
+							  <option value="2013"> 2013 </option>
+							  <option value="2014"> 2014 </option>
+							  <option value="2015"> 2015 </option>
+							  <option value="2016"> 2016 </option>
+							  <option value="2017"> 2017</option>
+							  <option value="2018"> 2018 </option>
+							  <option value="2019"> 2019 </option>
+							  <option value="2020"> 2020 </option>
+							  <option value="2021"> 2021 </option>
+							  <option value="2022"> 2022 </option>
+							  <option value="2023"> 2023 </option>
+							  <option value="2024"> 2024 </option>
+							  <option value="2025"> 2025 </option>
+							</select>
+						</div>
+						<br/>
+					<!-- Status -->
+						<div class="input-group col-md-9">
+							<span class="input-group-addon">Status:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<div class="form-control">
+								<input type="radio" name="status" id="approved" value="approved">
+								<label for="approved"> Approved </label>&nbsp;&nbsp;
+								<input type="radio" name="status" id="passed" value="passed">
+								<label for="passed"> Passed </label> &nbsp;&nbsp;
+								<input type="radio" name="status" id="pending" value="pending">
+								<label for="pending"> Pending </label>
+							</div>
+						</div>
+						<br/>
+
+
+
+					<hr>
+					<!-- Submit Button -->
+					<input id="thesisbtn" type = "Submit" class="btn pull-right">
+				</form>
+
+				{% endif %}
+				{% endfor %}
+
+				</fieldset>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Footer -->
+	<div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+		<div class="container">
+			<p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+		</div>
+	</div>
+
+
+
+
+
+{% else %}
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+
+      <div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+  </div>
+
+<!-- Header End -->
+
+
+<div class="col-md-20" id="loginthesis">
+<table align="center">
+<tr>
+    <td>
+    <br><br><br>
+    <img src="/images/locked-grey.png" width="180px" height="180px">
+    </td>
+
+    <td style="padding-left: 20px"> <p align="left">
+    <font style="font: 30pt Calibri; color: #CBCBCB; "><br>
+    Please <a class="btn" id="login1" href="{{ url|safe }}"> {{ url_linktext }}</a>
+    before <br> entering the page.
+    </font>
+    </p>
+    </td>
+<tr>  
+</table>
+</div>
+
+
+
+
+  <!-- Footer -->
+  <div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+    <div class="container">
+      <p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+
+
+<!-- Scripts -->
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src= "js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>	
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+
+<!--end script -->
+
+</body>
+</html>

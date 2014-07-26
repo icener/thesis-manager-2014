@@ -1,0 +1,26 @@
+application: coe2043-team-9
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /stylesheets
+  static_dir: stylesheets
+- url: /images
+  static_dir: images
+- url: /css
+  static_dir: css
+- url: /js
+  static_dir: js
+- url: /assets
+  static_dir: assets
+
+- url: /.*
+  script: guestbook.application
+
+libraries:
+- name: webapp2
+  version: latest
+- name: jinja2
+  version: latest

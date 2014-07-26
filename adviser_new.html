@@ -1,0 +1,282 @@
+<html>
+	
+	<head>
+		<title> Add new Adviser </title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+		<link href="/css/bootstrap.css" rel="stylesheet"/>	
+		<link rel="stylesheet" href="/css/styles.css"/>	
+	</head>
+
+
+
+<body background="/images/a3blue.jpg">
+
+{% if user_name %}
+
+
+<!-- Header -->
+	<div id="header" class="navbar navbar-inverse navbar-static-top " >
+	
+		<div id="header_container" class="container">
+			<a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+			
+      <div>
+        <a class="btn navbar-btn pull-right" id="login2" href="{{ url|safe }}"> {{ url_linktext }}</a>
+      </div> 
+
+			<div>
+			    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+  				<li class="#"><a href="/">Guestbook</a></li>
+  				<li class="dropdown">
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+					<ul class="dropdown-menu">
+					   	<li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              			<li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+  					</ul>  			
+  				</li>
+  				<li><a href="/student/list">Students</a></li>
+  				<li><a href="/thesis/list">Thesis</a></li>
+  				<li><a href="/adviser/list">Advisers</a></li>
+			</ul>
+			</div>
+
+
+		</div>	
+
+<!-- Header End -->
+
+	</div>
+	
+
+	
+	<div class="container">
+		<div class="row"> <!-- bawat row may 12 columns-->
+			<!-- Side Menu-->
+			<div class="col-md-3"><!-- isang div na ang size katumbas ng 3 columns-->
+				<br/><br/>
+				<a id="adviserbtn" class="btn" href="/adviser/new"><img src="/images/pipol.png" width=25px height=25px align="left"> &nbsp&nbsp&nbsp Add new Adviser</a>
+				<br><br>
+				<a id="adviserbtn" class="btn" href="/adviser/list"><img src="/images/advisers.png" width=25px height=25px align="left"> &nbsp&nbsp&nbsp View all Advisers </a>
+			</div>
+			<br/>
+
+
+
+			<div class="col-md-6">
+			
+			<fieldset>
+			<legend><h1 style="color: #FFFFFF;"><font style="Segoe UI">Add New Adviser &nbsp&raquo;</font></h1></legend>
+			</fieldset>
+
+				<form method = "POST" action ="/adviser/new"> 
+					
+					<!-- Title -->
+						<div class="input-group col-md-9">
+							<span class="input-group-addon">Title: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<div class="form-control">
+								
+								<input type="radio" name="title" id="Ms" value="Ms." checked>
+								<label for="Ms"> Ms&nbsp;&nbsp;&nbsp;</label>
+								
+								<input type="radio" name="title" id="Mr" value="Mr.">
+								<label for="Mr"> Mr&nbsp;&nbsp;&nbsp;</label>
+								
+								<input type="radio" name="title" id="Mrs" value="Mrs.">
+								<label for="Mrs"> Mrs&nbsp;&nbsp;&nbsp;</label>
+
+								<input type="radio" name="title" id="Dr" value="Dr.">
+								<label for="Dr"> Dr&nbsp;&nbsp;&nbsp;</label>
+								
+								<input type="radio" name="title" id="Engr" value="Engr.">
+								<label for="Engr"> Engr </label>
+								
+							</div>
+						</div>
+
+					<br/>
+
+
+
+					<!-- Names -->
+					<div class="input-group col-md-90">
+					<table>
+					<tr>
+						<td>
+						<div class="input-group col-md-30">
+							<span class="input-group-addon labelbg">Name :&nbsp;&nbsp;&nbsp;</span>
+							<input type = "text" class="form-control" name= "firstname" class="form-control" pattern="^[a-zA-z -(50)]*" name= "firstname" placeholder="First name" required>
+						</div>
+						</td>
+
+						<td>
+						<div class="input-group col-md-30">
+							<input type = "text" class="form-control" name= "middlename" class="form-control" pattern="^[a-zA-z -(20)]*" name= "middlename" placeholder="Middle name">
+						</div>
+						</td>
+
+						<td>
+						<div class="input-group col-md-30">
+							<input type = "text" class="form-control" name= "lastname" class="form-control" pattern="^[a-zA-z -(20)]*" name= "lastname" placeholder="Last name" required>
+						</div>
+						</td>
+					</tr>
+					</table>
+					</div>
+
+					<br/>
+
+
+
+
+					<!-- Email -->
+					<div class="input-group col-md-8">
+						<span class="input-group-addon labelbg">Email :&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<input type = "text" class="form-control" name= "email" class="form-control" name= "email" placeholder="email@net.com" required>
+    				</div>
+					
+					<br>
+					
+
+
+					<!-- phone number -->
+					<div class="input-group col-md-8">
+							<span class="input-group-addon labelbg">Contact Number :</span>
+							<input type = "text" class="form-control" name= "num" class="form-control" pattern="^[0-9(20)]*" name= "num" required>
+
+					</div>
+					<br>
+
+
+
+					<!--DEPT -->
+
+					<div class="input-group col-md-9">
+						<span class="input-group-addon">Department : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+							<select name="dept" class="form-control">
+							  <option value="Computer Engineering Department"> Computer Engineering </option>
+							  <option value="Electronics and Communication Egineering Department"> Electronics and Communication Egineering </option>
+							  <option value="Electrical Ebgineering Department"> Electrical Engineering</option>
+							  <option value="Mechanical Engineering Department"> Mechanical Engineering </option>	
+							  <option value="Civil Engineering Department"> Civil Engineering </option>
+							  <option value="Industrial Engineering Department"> Industrial Engineering </option>
+							</select>
+					</div>
+
+					<hr>
+					<!-- Submit Button -->
+					<input id="adviserbtn" type = "Submit" class="btn pull-right">
+				</form>
+				</fieldset>
+			</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Footer -->
+	<div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+		<div class="container">
+			<p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+		</div>
+	</div>
+
+
+
+
+
+{% else %}
+
+<!-- Header -->
+  <div id="header" class="navbar navbar-inverse navbar-static-top " >
+  
+    <div id="header_container" class="container">
+      <a href="/" class = "navbar-brand"><h3 style="font-style: Calibri; color:#E6E6E6;">Module 3<h3></a>
+
+      <div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<ul class="nav nav-pills">
+          <li class="#"><a href="/">Guestbook</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="/module-1/1"><img src="/images/ice.png" width="25px" height="25px">  Profile One</a></li>
+              <li><a href="/module-1/2"><img src="/images/chrissy.png" width="25px" height="25px"> Profile Two</a></li>
+            </ul>       
+          </li>
+          <li><a href="/student/list">Students</a></li>
+          <li><a href="/thesis/list">Thesis</a></li>
+          <li><a href="/adviser/list">Advisers</a></li>
+      </ul>
+      </div>
+
+
+    </div>  
+
+  </div>
+
+<!-- Header End -->
+
+
+<div class="col-md-20" id="loginadviser">
+<table align="center">
+<tr>
+    <td>
+    <br><br><br>
+    <img src="/images/users_lock.png" width="160px" height="160px">
+    </td>
+
+    <td style="padding-left: 20px"> <p align="left">
+    <font style="font: 30pt Calibri; color: #CBCBCB; "><br>
+    Please <a class="btn" id="login1" href="{{ url|safe }}"> {{ url_linktext }}</a>
+    before <br> entering the page.
+    </font>
+    </p>
+    </td>
+<tr>  
+</table>
+</div>
+
+
+  <!-- Footer -->
+  <div id="footer-style" class="footer-style navbar navbar-default navbar-fixed-bottom";>
+    <div class="container">
+      <p class="navbar-text text-right" style="font: 10pt Tahoma; color: #B7154D;"> Site built by Team 9 :) </p>
+    </div>
+  </div>
+
+{% endif %}
+
+
+
+
+
+
+
+
+<!-- Scripts -->
+	<script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src= "js/bootstrap.js"></script>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>	
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+
+<!--end script -->
+
+</body>
+</html>	
+
+
+
+
+
